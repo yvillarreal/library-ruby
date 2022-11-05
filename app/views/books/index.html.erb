@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Libreria Puppy</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-  </head>
-  <body>
-  <section class="section center">
-    <div class="container">
-      <table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Category</th>
-      <th>Year</th>
-    </tr>
-  </thead>
-  <tbody>
-     <% @books.each do |book| %>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library-App</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+
+<section id="titulo" class="section">
+  <div class="container">
+    <h1 class="title">
+      List of Books
+    </h1>
+  </div>
+</section>
+
+<section id="tabla" class="section">
+  <div class="container">
+    <table class="table is-bordered is-striped">
+      <thead>
       <tr>
-        <td><%= book.title %></td>
-        <td><%= book.category %></td>
-        <td><%= book.year %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Year</th>
+        <th>-</th>
+        <th>-</th>
+        <th>-</th>
       </tr>
-    <% end %>
-  </tbody>
-  </table>
+      </thead>
+      <tbody>
+      <tr>
+        <% @books.each do |book| %>
+          <td><%= book.title %> </td>
+          <td><%= book.category %> </td>
+          <td><%= book.year %> </td>
+          <td><%= link_to 'Show', book %></td>
+          <td><%= link_to 'Edit', edit_book_path(book) %></td>
+          <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+        </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="nuevoLibro" class="section">
+  <div class="columns is-mobile">
+    <div class="column is-three-fifths is-offset-one-fifth">
+      <button class="button is-primary is-hovered"><%= link_to 'New Book',new_book_path %></button>
     </div>
-  </section>
-  </body>
+  </div>
+</section>
+
+</body>
 </html>
 
-<%
-=begin%>
- 
-<p id="notice"><%= notice %></p>
+<!--
+
+<p id="notice"><%##= notice %></p>
 
 <h1>Books</h1>
 
@@ -53,21 +73,20 @@
   </thead>
 
   <tbody>
-    <% @books.each do |book| %>
+    <%# @books.each do |book| %>
       <tr>
-        <td><%= book.title %></td>
-        <td><%= book.category %></td>
-        <td><%= book.year %></td>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%##= book.title %></td>
+        <td><%##= book.category %></td>
+        <td><%##= book.year %></td>
+        <td><%##= link_to 'Show', book %></td>
+        <td><%##= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%##= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
+    <%# end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Book', new_book_path %> 
-<%
-=end%>
+<%#= link_to 'New Book', new_book_path %>
+-->
